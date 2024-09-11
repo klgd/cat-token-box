@@ -18,6 +18,7 @@ import {
     logerror,
     btc,
     verifyContract,
+    toTokenAddress,
 } from 'src/common';
 
 import {
@@ -171,7 +172,9 @@ export async function openMint(
     const address = wallet.getAddress();
 
     let tokenReceiver: string = config.getTokenReceiver();
-    if (tokenReceiver == '') {
+    if (tokenReceiver) {
+        tokenReceiver = toTokenAddress(tokenReceiver);
+    } else {
         tokenReceiver = wallet.getTokenAddress();
     }
 
