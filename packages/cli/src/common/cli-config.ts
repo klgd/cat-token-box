@@ -7,6 +7,7 @@ export type SupportedNetwork =
 export interface CliConfig {
   network: SupportedNetwork;
   tracker: string;
+  tokenReceiver: string;
   dataDir: string;
   maxFeeRate?: number;
   feeRate?: number;

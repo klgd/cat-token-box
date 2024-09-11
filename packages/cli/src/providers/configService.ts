@@ -10,6 +10,7 @@ export class ConfigService {
   cliConfig: CliConfig = {
     network: 'fractal-mainnet',
     tracker: 'http://127.0.0.1:3000',
+    tokenReceiver: '',
     dataDir: '.',
     feeRate: -1,
     maxFeeRate: -1,
@@ -54,6 +55,11 @@ export class ConfigService {
   getCliConfig(): CliConfig {
     return this.cliConfig;
   }
+
+  getTokenReceiver = () => {
+    const config = this.getCliConfig();
+    return config.tokenReceiver;
+  };
 
   getApiHost = () => {
     const config = this.getCliConfig();

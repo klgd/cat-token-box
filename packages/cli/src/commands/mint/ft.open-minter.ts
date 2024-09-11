@@ -170,7 +170,10 @@ export async function openMint(
 
     const address = wallet.getAddress();
 
-    const tokenReceiver = wallet.getTokenAddress();
+    let tokenReceiver: string = config.getTokenReceiver();
+    if (tokenReceiver == '') {
+        tokenReceiver = wallet.getTokenAddress();
+    }
 
     const tokenInfo = metadata.info as OpenMinterTokenInfo;
 
